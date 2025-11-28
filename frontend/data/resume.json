@@ -53,7 +53,7 @@
       "description": "Engineered a full-stack resume parsing with AI-powered job matching, improving job search efficiency by 85%. Implemented advanced NLP techniques using spaCy & BERT for extracting skills with 92% accuracy.",
       "tech": ["React.js", "Vite", "Tailwind CSS", "FastAPI", "MongoDB", "spaCy", "BERT", "pypdf", "Axios"],
       "links": {
-        "live": "",
+        "live": "https://jobeez-xgkm.vercel.app",
         "repo": "https://github.com/MukundC25/Jobeez"
       },
       "date": "Nov 2025 - Ongoing",
