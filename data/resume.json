@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "sourceFile": "Mukund_resume.pdf",
+    "parsedAt": "2025-11-28T09:12:01.945Z"
+  },
+  "personal": {
+    "name": "Mukund Chavan",
+    "title": "Software Engineer & AI/ML Developer",
+    "location": "Pune, Maharashtra, India",
+    "contacts": {
+      "email": "officialmukundchavan@gmail.com",
+      "phone": "+91-8956910788",
+      "linkedin": "https://linkedin.com/in/mukundchavan2",
+      "github": "https://github.com/MukundC25",
+      "website": "",
+      "codechef": "https://www.codechef.com/users/mukundc",
+      "leetcode": "https://leetcode.com/mukund2503",
+      "codeforces": "https://codeforces.com/profile/mukundc"
+    }
+  },
+  "summary": "B.Tech student in Electronics and Telecommunications with expertise in AI/ML, full-stack development, and competitive programming. Experienced in building production-grade ML systems, RAG-based chatbots, and mobile applications. Solved 700+ coding problems across competitive platforms with top rankings.",
+  "experience": [
+    {
+      "role": "Software Engineering Intern (AI/ML)",
+      "company": "SortUs",
+      "location": "Pune, Maharashtra",
+      "start": "2025-06-01",
+      "end": "2025-08-01",
+      "bullets": [
+        "Built ML-driven Green Points engine using FastAPI & Random Forest for real-time reward prediction",
+        "Automated e-waste pricing via multi-feature regression and achieved accuracy of R² = 0.85+",
+        "Integrated AI microservice into a Node.js/MongoDB stack with JWT-secured wallet transactions"
+      ],
+      "tech": ["FastAPI", "Random Forest", "Node.js", "MongoDB", "JWT", "Python", "Machine Learning"]
+    },
+    {
+      "role": "AI/ML Virtual Intern",
+      "company": "EduSkills, AICTE - Google For Developers",
+      "location": "Remote",
+      "start": "2024-07-01",
+      "end": "2024-09-01",
+      "bullets": [
+        "Completed a 10-week AI-ML virtual internship supported by Google Developers",
+        "Trained CNNs and fine-tuned models for real-world object detection using TensorFlow",
+        "Applied data augmentation to optimize accuracy for production-grade scenarios"
+      ],
+      "tech": ["TensorFlow", "CNN", "Python", "Computer Vision", "Deep Learning"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Jobeez: AI-Powered Resume Parser & Job Matcher",
+      "description": "Engineered a full-stack resume parsing with AI-powered job matching, improving job search efficiency by 85%. Implemented advanced NLP techniques using spaCy & BERT for extracting skills with 92% accuracy.",
+      "tech": ["React.js", "Vite", "Tailwind CSS", "FastAPI", "MongoDB", "spaCy", "BERT", "pypdf", "Axios"],
+      "links": {
+        "live": "",
+        "repo": "https://github.com/MukundC25/Jobeez"
+      },
+      "date": "Nov 2025 - Ongoing",
+      "highlights": [
+        "85% improvement in job search efficiency",
+        "92% accuracy in skill extraction using NLP",
+        "AI-powered resume parsing with BERT"
+      ]
+    },
+    {
+      "title": "FinMate: Smart UPI-Based Expense & Budgeting Assistant",
+      "description": "Built an SMS-based UPI parser with 92%+ accuracy for extracting amount, merchant, and UPI ID. Added SQLite-backed transaction & budget CRUD and Zustand state management with modular UI.",
+      "tech": ["React Native", "Expo", "TypeScript", "Regex", "SQLite", "Zustand", "React Navigation"],
+      "links": {
+        "live": "",
+        "repo": "https://github.com/MukundC25"
+      },
+      "date": "Nov 2025 - Ongoing",
+      "highlights": [
+        "92%+ accuracy in UPI transaction parsing",
+        "SQLite-backed CRUD operations",
+        "Modular state management with Zustand"
+      ]
+    },
+    {
+      "title": "Apta: Smart Lifestyle & Learning Recommender",
+      "description": "Built TF-IDF vectorization + cosine similarity to get accurate recommendation over 150 lifestyle items. Created time/interest-based filtering, reducing irrelevant suggestions by 70% through scoring algorithms.",
+      "tech": ["Next.js", "FastAPI", "scikit-learn", "TF-IDF", "Zustand", "Tailwind CSS", "Python"],
+      "links": {
+        "live": "https://apta.vercel.app",
+        "repo": "https://github.com/MukundC25"
+      },
+      "date": "Sept 2025 - Oct 2025",
+      "highlights": [
+        "TF-IDF + cosine similarity recommendation engine",
+        "70% reduction in irrelevant suggestions",
+        "150+ lifestyle items catalog"
+      ]
+    },
+    {
+      "title": "Conversational AI: Memory-Aware Document Q&A",
+      "description": "Developed a RAG-based chatbot with FAISS for document search & context-aware multi-mode Q&A. Integrated LangChain memory and achieved 100% API test coverage for robust, persistent conversations.",
+      "tech": ["React.js", "FastAPI", "LangChain", "FAISS", "Gemini API", "Docker", "Python", "RAG"],
+      "links": {
+        "live": "",
+        "repo": "https://github.com/MukundC25"
+      },
+      "date": "June 2025 - July 2025",
+      "highlights": [
+        "RAG-based architecture with FAISS vector search",
+        "LangChain memory integration",
+        "100% API test coverage"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech - Electronics and Telecommunications",
+      "institution": "MIT Academy of Engineering, Pune",
+      "start": "2023",
+      "end": "2027",
+      "gpa": "7.27/10",
+      "notes": []
+    },
+    {
+      "degree": "Major - Artificial Intelligence",
+      "institution": "Indian Institute of Technology, Ropar",
+      "start": "2024",
+      "end": "2025",
+      "gpa": "9.6/10",
+      "notes": []
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "C++", "JavaScript", "TypeScript", "HTML/CSS"],
+    "frameworks": ["React.js", "Next.js", "React Native", "Node.js", "FastAPI", "Express.js"],
+    "tools": ["Git", "Docker", "REST APIs", "Socket.io", "Vite", "Chart.js"],
+    "aiml": ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace", "LangChain", "FAISS", "Pandas", "NumPy", "NLP", "CNN", "RAG"],
+    "databases": ["MongoDB", "MySQL", "SQLite"],
+    "other": ["Data Structures & Algorithms", "OOP", "Operating Systems", "DBMS"]
+  },
+  "achievements": [
+    {
+      "category": "Competitive Programming",
+      "items": [
+        "Solved 700+ problems across CodeChef, LeetCode & Codeforces",
+        "CodeChef: Rating 1682 | 3 Stars | Top 4.73% | 400+ problems solved",
+        "LeetCode: Rating 1668 | Top 15.58% | 200+ problems solved",
+        "Codeforces: Pupil with rating of 1210 (Max)",
+        "2X Top 100 in CodeChef Contests | Ranks 18 & 72 in Starters 196 & 199",
+        "Global rank 1950/27000+ in LeetCode Biweekly 158",
+        "Global rank 5458/30000+ in Codeforces Round 1041"
+      ]
+    },
+    {
+      "category": "Hackathons & Challenges",
+      "items": [
+        "Amazon ML Challenge 2025: Top 12% among 6500+ teams",
+        "Adobe India Hackathon 2025: Competed among 2.5 lakh+ participants and 95,000+ teams"
+      ]
+    }
+  ],
+  "certifications": [],
+  "notes": {
+    "warnings": [],
+    "fields_missing": [],
+    "confidence": {
+      "personal": 1.0,
+      "experience": 0.95,
+      "skills": 0.95,
+      "projects": 0.9,
+      "education": 0.95
+    }
+  }
+}
