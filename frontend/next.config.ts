@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.jsdelivr.net',
         pathname: '/gh/devicons/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'ghchart.rshah.org',
+        pathname: '/**',
+      },
     ],
   },
 };

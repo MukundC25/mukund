@@ -1,7 +1,7 @@
 {
   "meta": {
-    "sourceFile": "Mukund_resume.pdf",
-    "parsedAt": "2025-11-28T09:12:01.945Z"
+    "sourceFile": "Mukund_resume_26.pdf",
+    "parsedAt": "2026-04-30T10:00:00.000Z"
   },
   "personal": {
     "name": "Mukund Chavan",
@@ -18,69 +18,86 @@
       "codeforces": "https://codeforces.com/profile/mukundc"
     }
   },
-  "summary": "B.Tech student in Electronics and Telecommunications with expertise in AI/ML, full-stack development, and competitive programming. Experienced in building production-grade ML systems, RAG-based chatbots, and mobile applications. Solved 700+ coding problems across competitive platforms with top rankings.",
+  "summary": "Software Engineer with expertise in AI/ML, full-stack development, and competitive programming. Experienced in building production-grade ML systems, Agentic AI, and scalable applications. Solved 700+ coding problems across competitive platforms with top rankings.",
   "experience": [
     {
-      "role": "Software Engineering Intern (AI/ML)",
+      "role": "Developer (Open Source)",
+      "company": "FOSSASIA, (Eventyay)",
+      "location": "Remote",
+      "start": "2025-12-01",
+      "end": "",
+      "bullets": [
+        "Implemented email notification system for registered team members by adding template conditionals and SMTP integration, followed by email scheduling infrastructure with Celery Beat integration.",
+        "Unified email handling into single canonical field across 4 modules, eliminating duplication and improving data integrity. Centralized email Reply-To logic by creating unified helper function with SMTP context.",
+        "Built conditional field system with client/server logic, enabling dynamic form behavior based on parent question values reducing form complexity by 40%.",
+        "Redesigned order form UI affecting 100% of ticket checkout flows, fixed 3 critical data persistence bugs.",
+        "Fixed API parameter mismatch causing 100% preview failures in Message Center through parameter naming."
+      ],
+      "tech": ["Python", "Django", "PostgreSQL", "Redis", "Celery", "jQuery", "Docker"]
+    },
+    {
+      "role": "Software Engineering Intern (Backend + ML)",
       "company": "SortUs",
       "location": "Pune, Maharashtra",
       "start": "2025-06-01",
       "end": "2025-08-01",
       "bullets": [
-        "Built ML-driven Green Points engine using FastAPI & Random Forest for real-time reward prediction",
-        "Automated e-waste pricing via multi-feature regression and achieved accuracy of R² = 0.85+",
-        "Integrated AI microservice into a Node.js/MongoDB stack with JWT-secured wallet transactions"
+        "Built ML-driven Green Points engine using FastAPI & Random Forest for real-time reward prediction.",
+        "Automated e-waste pricing via multi-feature regression and achieved accuracy of R² = 0.85+.",
+        "Integrated AI microservice into a Node.js stack with JWT-secured wallet transactions."
       ],
-      "tech": ["FastAPI", "Random Forest", "Node.js", "MongoDB", "JWT", "Python", "Machine Learning"]
-    },
-    {
-      "role": "AI/ML Virtual Intern",
-      "company": "EduSkills, AICTE - Google For Developers",
-      "location": "Remote",
-      "start": "2024-07-01",
-      "end": "2024-09-01",
-      "bullets": [
-        "Completed a 10-week AI-ML virtual internship supported by Google Developers",
-        "Trained CNNs and fine-tuned models for real-world object detection using TensorFlow",
-        "Applied data augmentation to optimize accuracy for production-grade scenarios"
-      ],
-      "tech": ["TensorFlow", "CNN", "Python", "Computer Vision", "Deep Learning"]
+      "tech": ["React.js", "Node.js", "Tailwind CSS", "JWT", "FastAPI", "Scikit-learn"]
     }
   ],
   "projects": [
     {
-      "title": "Jobeez: AI-Powered Resume Parser & Job Matcher",
-      "description": "Engineered a full-stack resume parsing with AI-powered job matching, improving job search efficiency by 85%. Implemented advanced NLP techniques using spaCy & BERT for extracting skills with 92% accuracy.",
-      "tech": ["React.js", "Vite", "Tailwind CSS", "FastAPI", "MongoDB", "spaCy", "BERT", "pypdf", "Axios"],
-      "links": {
-        "live": "https://jobeez-xgkm.vercel.app",
-        "repo": "https://github.com/MukundC25/Jobeez"
-      },
-      "date": "Nov 2025 - Ongoing",
-      "highlights": [
-        "85% improvement in job search efficiency",
-        "92% accuracy in skill extraction using NLP",
-        "AI-powered resume parsing with BERT"
-      ]
-    },
-    {
-      "title": "FinMate: Smart UPI-Based Expense & Budgeting Assistant",
-      "description": "Built an SMS-based UPI parser with 92%+ accuracy for extracting amount, merchant, and UPI ID. Added SQLite-backed transaction & budget CRUD and Zustand state management with modular UI.",
-      "tech": ["React Native", "Expo", "TypeScript", "Regex", "SQLite", "Zustand", "React Navigation"],
+      "title": "EKIA: Code Debugging Intelligence Assistant",
+      "description": "Built a 5-node LangGraph agent pipeline with hybrid retrieval by FAISS vector search & Neo4j GraphRAG, enabling context-aware error analysis. Integrated local Llama3 via Ollama with HuggingFace embeddings and Langfuse tracing.",
+      "tech": ["Python", "FastAPI", "LangGraph", "LangChain", "Llama3/Ollama", "FAISS", "Neo4j", "HuggingFace", "Langfuse", "Pydantic"],
       "links": {
         "live": "",
         "repo": "https://github.com/MukundC25"
       },
-      "date": "Nov 2025 - Ongoing",
+      "date": "Apr 2026",
+      "highlights": [
+        "5-node LangGraph agent pipeline for complex debugging",
+        "Hybrid retrieval with FAISS and Neo4j GraphRAG",
+        "Interactive force-directed knowledge graph visualization"
+      ]
+    },
+    {
+      "title": "Refine: AI-Powered Resume Optimizer",
+      "description": "Built resume optimizer raising ATS scores by 45% via prompt-engineered analysis, semantic score, & JD alignment. Implemented JWT + Argon2 auth with RBAC, live LaTeX preview, & user profiles.",
+      "tech": ["Python", "Tailwind CSS", "FastAPI", "TypeScript", "Pydantic", "Gemini 2.5", "SQLAlchemy", "PostgreSQL", "JWT"],
+      "links": {
+        "live": "https://refine-cv.vercel.app",
+        "repo": "https://github.com/MukundC25"
+      },
+      "date": "Jan 2026 - Feb 2026",
+      "highlights": [
+        "Increased ATS scores by 45% via prompt engineering",
+        "Live LaTeX preview integration",
+        "Secure auth with JWT + Argon2"
+      ]
+    },
+    {
+      "title": "FinMate: Smart UPI-Based Expense Assistant",
+      "description": "Built an SMS-based UPI parser with 92%+ accuracy for extracting amount, merchant, and UPI ID. Added SQLite-backed transaction CRUD and Zustand state management with modular UI.",
+      "tech": ["React Native", "TypeScript", "SQLite", "Supabase", "PostgreSQL", "REST APIs", "Google OAuth"],
+      "links": {
+        "live": "",
+        "repo": "https://github.com/MukundC25"
+      },
+      "date": "Nov 2025 - Apr 2026",
       "highlights": [
         "92%+ accuracy in UPI transaction parsing",
-        "SQLite-backed CRUD operations",
-        "Modular state management with Zustand"
+        "Supabase and PostgreSQL integration",
+        "Google OAuth implementation"
       ]
     },
     {
       "title": "Apta: Smart Lifestyle & Learning Recommender",
-      "description": "Built TF-IDF vectorization + cosine similarity to get accurate recommendation over 150 lifestyle items. Created time/interest-based filtering, reducing irrelevant suggestions by 70% through scoring algorithms.",
+      "description": "Built TF-IDF vectorization + cosine similarity to get accurate recommendation over 150 lifestyle items. Created time/interest-based filtering, reducing irrelevant suggestions by 70%.",
       "tech": ["Next.js", "FastAPI", "scikit-learn", "TF-IDF", "Zustand", "Tailwind CSS", "Python"],
       "links": {
         "live": "https://apta.vercel.app",
@@ -88,24 +105,9 @@
       },
       "date": "Sept 2025 - Oct 2025",
       "highlights": [
-        "TF-IDF + cosine similarity recommendation engine",
+        "TF-IDF + cosine similarity engine",
         "70% reduction in irrelevant suggestions",
-        "150+ lifestyle items catalog"
-      ]
-    },
-    {
-      "title": "Conversational AI: Memory-Aware Document Q&A",
-      "description": "Developed a RAG-based chatbot with FAISS for document search & context-aware multi-mode Q&A. Integrated LangChain memory and achieved 100% API test coverage for robust, persistent conversations.",
-      "tech": ["React.js", "FastAPI", "LangChain", "FAISS", "Gemini API", "Docker", "Python", "RAG"],
-      "links": {
-        "live": "",
-        "repo": "https://github.com/MukundC25"
-      },
-      "date": "June 2025 - July 2025",
-      "highlights": [
-        "RAG-based architecture with FAISS vector search",
-        "LangChain memory integration",
-        "100% API test coverage"
+        "150+ catalog items processed"
       ]
     }
   ],
@@ -122,37 +124,34 @@
       "degree": "Major - Artificial Intelligence",
       "institution": "Indian Institute of Technology, Ropar",
       "start": "2024",
-      "end": "2025",
+      "end": "2026",
       "gpa": "9.6/10",
       "notes": []
     }
   ],
   "skills": {
-    "languages": ["Python", "C++", "JavaScript", "TypeScript", "HTML/CSS"],
-    "frameworks": ["React.js", "Next.js", "React Native", "Node.js", "FastAPI", "Express.js"],
-    "tools": ["Git", "Docker", "REST APIs", "Socket.io", "Vite", "Chart.js"],
-    "aiml": ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace", "LangChain", "FAISS", "Pandas", "NumPy", "NLP", "CNN", "RAG"],
-    "databases": ["MongoDB", "MySQL", "SQLite"],
-    "other": ["Data Structures & Algorithms", "OOP", "Operating Systems", "DBMS"]
+    "languages": ["Python", "C++", "JavaScript", "TypeScript"],
+    "frameworks": ["React.js", "Next.js", "Node.js", "Django", "FastAPI", "Express.js"],
+    "tools": ["Git", "Docker", "Redis", "OAuth/JWT", "Cursor", "Claude"],
+    "aiml": ["Scikit-learn", "HuggingFace", "Transformers", "LangChain", "RAG", "Neo4j", "GraphRAG"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+    "other": ["Data Structures", "Algorithms", "REST APIs", "CI/CD"]
   },
   "achievements": [
     {
       "category": "Competitive Programming",
       "items": [
-        "Solved 700+ problems across CodeChef, LeetCode & Codeforces",
-        "CodeChef: Rating 1682 | 3 Stars | Top 4.73% | 400+ problems solved",
-        "LeetCode: Rating 1668 | Top 15.58% | 200+ problems solved",
-        "Codeforces: Pupil with rating of 1210 (Max)",
-        "2X Top 100 in CodeChef Contests | Ranks 18 & 72 in Starters 196 & 199",
-        "Global rank 1950/27000+ in LeetCode Biweekly 158",
-        "Global rank 5458/30000+ in Codeforces Round 1041"
+        "CodeChef: Rating 1682 | 3 Stars | Top 4.73% | Solved 400+ problems | 2X Top 100 in Contests",
+        "LeetCode: Rating 1668 | Top 15.58% | Solved 200+ problems | Global rank 1950/27000+",
+        "CodeForces: Pupil with rating of 1210 (Max) | Global rank 602/16000+ in Contest 1039"
       ]
     },
     {
       "category": "Hackathons & Challenges",
       "items": [
-        "Amazon ML Challenge 2025: Top 12% among 6500+ teams",
-        "Adobe India Hackathon 2025: Competed among 2.5 lakh+ participants and 95,000+ teams"
+        "Amazon ML Challenge 2025: Ranked in Top 50 on Day 1 among 6500+ teams",
+        "HackRx 6.0 Bajaj Finserv: Built LLM Query Retrieval System among 15,000+ teams",
+        "Adobe India Hackathon 2025: Competed among 95,000+ teams"
       ]
     }
   ],
@@ -162,10 +161,10 @@
     "fields_missing": [],
     "confidence": {
       "personal": 1.0,
-      "experience": 0.95,
-      "skills": 0.95,
-      "projects": 0.9,
-      "education": 0.95
+      "experience": 1.0,
+      "skills": 1.0,
+      "projects": 1.0,
+      "education": 1.0
     }
   }
 }

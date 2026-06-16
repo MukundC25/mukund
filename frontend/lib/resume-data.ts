@@ -55,7 +55,7 @@ export interface Skills {
   tools: string[];
   aiml: string[];
   databases: string[];
-  other: string[];
+  other?: string[];
 }
 
 export interface Achievement {

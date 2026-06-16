@@ -3,14 +3,32 @@ node_modules/
 
 # OS
 .DS_Store
+Thumbs.db
 
 # IDE
 .idea/
 .vscode/
 *.swp
+*.swo
 
 # Logs
 *.log
 
 # Deployment
 windsurf_deployment.yaml
+
+# Environment variables
+.env
+.env.*
+.env.local
+.env.production
+
+# Source images (already copied to frontend/public/)
+IMG_*.jpeg
+IMG_*.jpg
+*.pdf
+!frontend/public/*.pdf
+
+# SVG source files at root (copies exist in frontend/public/)
+/codechef.svg
+/code-forces.svg

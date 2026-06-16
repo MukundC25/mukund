@@ -1,237 +1,167 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { MapPin, GraduationCap, Briefcase, User, Sparkles, Brain } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { resumeData } from '@/lib/resume-data';
+import { useRef } from 'react';
+import Image from 'next/image';
 
-export function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const prefersReducedMotion = useReducedMotion();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-      },
-    },
+// Floating emoji component that moves on hover
+function FloatingEmoji({ emoji, position }: { emoji: string; position: 'top-right' | 'bottom-right' | 'top-left' }) {
+  const posClasses = {
+    'top-right': '-top-3 -right-3',
+    'bottom-right': '-bottom-3 -right-3',
+    'top-left': '-top-3 -left-3',
   };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const infoCards = [
-    {
-      icon: MapPin,
-      title: 'Location',
-      value: resumeData.personal.location,
-      subtext: 'Open to Remote',
-      color: '#FFB86B',
-      floatingEmoji: '📍',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Education',
-      value: resumeData.education[0]?.degree,
-      subtext: resumeData.education[0]?.institution,
-      color: '#76C893',
-      floatingEmoji: '🎓',
-    },
-    {
-      icon: Briefcase,
-      title: 'Experience',
-      value: `${resumeData.experience.length} Internships`,
-      subtext: 'AI/ML & Full-Stack',
-      color: '#60A5FA',
-      floatingEmoji: '💼',
-    },
-  ];
 
   return (
-    <section id="about" className="py-24 bg-[var(--background-secondary)] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[var(--accent)] blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-[var(--accent-green)] blur-3xl" />
-      </div>
+    <motion.div
+      className={`absolute ${posClasses[position]} w-9 h-9 bg-card rounded-full shadow-lg flex items-center justify-center text-lg border border-border z-10`}
+      whileHover={{ x: [0, -4, 4, -2, 2, 0], transition: { duration: 0.5 } }}
+      animate={{ y: [0, -2, 0], transition: { repeat: Infinity, duration: 3, ease: 'easeInOut' } }}
+    >
+      {emoji}
+    </motion.div>
+  );
+}
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+export function About() {
+  const prefersReducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const yText = useTransform(scrollYProgress, [0, 1], ['8%', '-4%']);
+  const yImages = useTransform(scrollYProgress, [0, 1], ['4%', '-8%']);
+  const rotateLeft = useTransform(scrollYProgress, [0, 1], [-3, 1]);
+  const rotateRight = useTransform(scrollYProgress, [0, 1], [3, -1]);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-20 border-t border-border"
+    >
+      <div className="max-w-3xl mx-auto px-6">
         <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="space-y-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center space-y-4">
-            <motion.div
-              initial={prefersReducedMotion ? {} : { scale: 0 }}
-              animate={isInView ? { scale: 1 } : {}}
-              transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-muted)] border border-[var(--accent-glow)] mb-4"
-            >
-              <User size={16} className="text-[var(--accent)]" />
-              <span className="text-sm font-medium text-[var(--accent)]">About Me</span>
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--foreground)]">
-              Passionate <span className="text-gradient">Developer</span>
-            </h2>
-            <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto text-lg leading-relaxed">
-              {resumeData.summary}
-            </p>
-          </motion.div>
+          <h2 className="text-2xl text-foreground">About</h2>
+        </motion.div>
 
-          {/* Info Cards */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        {/* About text with parallax */}
+        <motion.div
+          style={prefersReducedMotion ? {} : { y: yText }}
+          className="space-y-5 mb-16"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-muted-foreground leading-relaxed"
           >
-            {infoCards.map((card, index) => (
-              <motion.div
-                key={card.title}
-                className="group relative p-6 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--background-secondary)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 overflow-hidden"
-                whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.02 }}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {/* Floating emoji */}
-                {!prefersReducedMotion && (
-                  <motion.span
-                    className="absolute top-3 right-3 text-sm opacity-60"
-                    animate={{ 
-                      rotate: [-8, 8, -8],
-                      y: [-1, 1, -1],
-                    }}
-                    transition={{ duration: 2 + index * 0.3, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    {card.floatingEmoji}
-                  </motion.span>
-                )}
-                
-                {/* Hover glow */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: `radial-gradient(circle at top right, ${card.color}10, transparent 70%)` }}
-                />
-                
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <motion.div 
-                      className="p-3 rounded-xl border"
-                      style={{ 
-                        backgroundColor: `${card.color}15`,
-                        borderColor: `${card.color}30`
-                      }}
-                      whileHover={{ rotate: 10, scale: 1.1 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                      <card.icon size={22} style={{ color: card.color }} />
-                    </motion.div>
-                    <h3 className="font-bold text-lg text-[var(--foreground)]">{card.title}</h3>
-                  </div>
-                  <p className="text-[var(--foreground)] font-medium mb-1">{card.value}</p>
-                  <p className="text-sm text-[var(--foreground-dim)]">{card.subtext}</p>
-                </div>
-              </motion.div>
-            ))}
+            I started coding out of curiosity — building small projects and solving coding problems — and over time grew into developing complete products that balance solid architecture and great user experience.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-muted-foreground leading-relaxed"
+          >
+            My stack includes Python, React, Next.js, Django, and FastAPI, but I love exploring new technologies — especially in AI/ML and agentic systems that push what&apos;s possible.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-muted-foreground leading-relaxed"
+          >
+            Outside of coding, I enjoy traveling to new places, exploring beaches, discovering scenic mountain trails, and spending quality time perfecting my workspace setup for those deep coding sessions.
+          </motion.p>
+        </motion.div>
+
+        {/* Photo grid — floating rotated images with emoji badges */}
+        <motion.div
+          style={prefersReducedMotion ? {} : { y: yImages }}
+          className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8"
+        >
+          {/* Image 1 — travel/setup image with slight left rotation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, rotate: -5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={prefersReducedMotion ? {} : { rotate: rotateLeft }}
+            whileHover={{ rotate: 0, scale: 1.04, transition: { duration: 0.25 } }}
+            className="relative flex-shrink-0"
+          >
+            <div className="relative w-36 sm:w-44 md:w-48 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/about-1.jpeg"
+                alt="Mukund traveling"
+                width={400}
+                height={0}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 192px"
+              />
+            </div>
+            <FloatingEmoji emoji="⛰️" position="top-right" />
           </motion.div>
 
-          {/* Education Details */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            <div className="text-center">
-              <motion.div
-                initial={prefersReducedMotion ? {} : { scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: 'spring' }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-muted)] border border-[var(--accent-glow)] mb-4"
-              >
-                <GraduationCap size={16} className="text-[var(--accent)]" />
-                <span className="text-sm font-medium text-[var(--accent)]">Academic Background</span>
-              </motion.div>
-              <h3 className="text-2xl font-bold text-[var(--foreground)]">Education</h3>
+          {/* Image 2 — center, straight */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ scale: 1.04, y: -4, transition: { duration: 0.25 } }}
+            className="relative flex-shrink-0"
+          >
+            <div className="relative w-40 sm:w-48 md:w-52 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/about-2.jpeg"
+                alt="Mukund with coding setup"
+                width={400}
+                height={0}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, 208px"
+              />
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {resumeData.education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  className="group relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--background-secondary)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 overflow-hidden"
-                  whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.02 }}
-                  initial={prefersReducedMotion ? {} : { opacity: 0, x: index === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                >
-                  {/* Floating education emoji */}
-                  {!prefersReducedMotion && (
-                    <motion.span
-                      className="absolute bottom-4 right-4 text-lg opacity-40"
-                      animate={{ 
-                        rotate: [-5, 5, -5],
-                        y: [-2, 2, -2],
-                      }}
-                      transition={{ duration: 2.5 + index * 0.5, repeat: Infinity, ease: 'easeInOut' }}
-                    >
-                      {edu.institution.includes('IIT') ? '🤖' : '📚'}
-                    </motion.span>
-                  )}
-                  
-                  {/* Corner decoration */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[var(--accent)] opacity-[0.05] rounded-bl-full group-hover:opacity-[0.1] transition-opacity" />
-                  
-                  {/* AI badge for IIT */}
-                  {edu.institution.includes('IIT') && (
-                    <motion.div 
-                      className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-full bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20"
-                      animate={!prefersReducedMotion ? { scale: [1, 1.05, 1] } : {}}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Brain size={12} className="text-[var(--accent-green)]" />
-                      <span className="text-xs font-medium text-[var(--accent-green)]">AI Focus</span>
-                    </motion.div>
-                  )}
+            <FloatingEmoji emoji="🏖️" position="bottom-right" />
+          </motion.div>
 
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-4">
-                      <motion.div 
-                        className="p-3 rounded-xl bg-[var(--accent-muted)] border border-[var(--accent-glow)]"
-                        whileHover={{ rotate: 10, scale: 1.1 }}
-                      >
-                        <GraduationCap size={24} className="text-[var(--accent)]" />
-                      </motion.div>
-                      <div className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[var(--background)] border border-[var(--border)]">
-                        <Sparkles size={14} className="text-[var(--accent)]" />
-                        <span className="text-sm font-bold text-[var(--accent)]">{edu.gpa}</span>
-                      </div>
-                    </div>
-                    
-                    <h4 className="text-lg font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent)] transition-colors">
-                      {edu.degree}
-                    </h4>
-                    <p className="text-[var(--foreground-muted)] mb-3">{edu.institution}</p>
-                    <div className="flex items-center gap-2 text-sm text-[var(--foreground-dim)]">
-                      <span className="px-2 py-1 rounded-md bg-[var(--background)] border border-[var(--border)]">
-                        {edu.start} - {edu.end}
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Image 3 — slight right rotation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, rotate: 5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 3 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            style={prefersReducedMotion ? {} : { rotate: rotateRight }}
+            whileHover={{ rotate: 0, scale: 1.04, transition: { duration: 0.25 } }}
+            className="relative flex-shrink-0"
+          >
+            <div className="relative w-36 sm:w-44 md:w-48 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/about-3.jpeg"
+                alt="Mukund coding"
+                width={400}
+                height={0}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 192px"
+              />
             </div>
+            <FloatingEmoji emoji="👨‍💻" position="top-right" />
           </motion.div>
         </motion.div>
       </div>
