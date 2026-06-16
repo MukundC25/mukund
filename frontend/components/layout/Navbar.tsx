@@ -64,12 +64,16 @@ export function Navbar() {
             paddingRight: isScrolled ? '16px' : '24px',
           }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="pointer-events-auto hidden md:flex items-center gap-1 py-2 rounded-full border border-border/50 shadow-lg backdrop-blur-xl"
+          className="pointer-events-auto hidden md:flex items-center gap-1 py-2.5 rounded-full border border-white/20 dark:border-white/10 shadow-xl backdrop-blur-2xl"
           style={{
             background: theme === 'dark'
-              ? 'rgba(20, 20, 20, 0.75)'
-              : 'rgba(255, 255, 255, 0.7)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              ? 'rgba(20, 20, 20, 0.55)'
+              : 'rgba(255, 255, 255, 0.45)',
+            boxShadow: theme === 'dark'
+              ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+              : '0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8), inset 0 -1px 1px rgba(0, 0, 0, 0.03)',
+            WebkitBackdropFilter: 'blur(24px) saturate(1.8)',
+            backdropFilter: 'blur(24px) saturate(1.8)',
           }}
         >
           {navLinks.map((link) => {
@@ -124,7 +128,20 @@ export function Navbar() {
         </motion.nav>
 
         {/* Mobile nav */}
-        <nav className="pointer-events-auto md:hidden flex items-center justify-between w-full px-6 py-3">
+        <nav
+          className="pointer-events-auto md:hidden flex items-center justify-between w-full px-5 py-2.5 mx-4 mt-1 rounded-full border border-white/20 dark:border-white/10 shadow-xl"
+          style={{
+            background: theme === 'dark'
+              ? 'rgba(20, 20, 20, 0.55)'
+              : 'rgba(255, 255, 255, 0.45)',
+            boxShadow: theme === 'dark'
+              ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
+              : '0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8)',
+            maxWidth: 'calc(100% - 2rem)',
+            WebkitBackdropFilter: 'blur(24px) saturate(1.8)',
+            backdropFilter: 'blur(24px) saturate(1.8)',
+          }}
+        >
           <Link href="/" className="font-serif text-xl text-foreground">
             M
           </Link>

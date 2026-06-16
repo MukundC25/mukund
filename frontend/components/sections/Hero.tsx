@@ -24,7 +24,7 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-[65vh] flex items-center pt-32 pb-12"
+      className="relative min-h-[60vh] sm:min-h-[65vh] flex items-center pt-24 sm:pt-32 pb-12"
     >
       <div className="max-w-3xl mx-auto px-6 w-full">
         <motion.div

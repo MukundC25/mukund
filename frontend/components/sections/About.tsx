@@ -94,7 +94,7 @@ export function About() {
         {/* Photo grid — floating rotated images with emoji badges */}
         <motion.div
           style={prefersReducedMotion ? {} : { y: yImages }}
-          className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8"
+          className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 px-2"
         >
           {/* Image 1 — travel/setup image with slight left rotation */}
           <motion.div
@@ -104,16 +104,16 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.1 }}
             style={prefersReducedMotion ? {} : { rotate: rotateLeft }}
             whileHover={{ rotate: 0, scale: 1.04, transition: { duration: 0.25 } }}
-            className="relative flex-shrink-0"
+            className="relative w-[28%] sm:w-[30%] md:w-[32%] max-w-[200px]"
           >
-            <div className="relative w-36 sm:w-44 md:w-48 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/about-1.jpeg"
                 alt="Mukund traveling"
                 width={400}
-                height={0}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 192px"
+                height={500}
+                className="w-full h-auto"
+                sizes="(max-width: 640px) 28vw, (max-width: 768px) 30vw, 200px"
               />
             </div>
             <FloatingEmoji emoji="⛰️" position="top-right" />
@@ -126,16 +126,16 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={{ scale: 1.04, y: -4, transition: { duration: 0.25 } }}
-            className="relative flex-shrink-0"
+            className="relative w-[32%] sm:w-[34%] md:w-[36%] max-w-[220px]"
           >
-            <div className="relative w-40 sm:w-48 md:w-52 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/about-2.jpeg"
                 alt="Mukund with coding setup"
                 width={400}
-                height={0}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, 208px"
+                height={500}
+                className="w-full h-auto"
+                sizes="(max-width: 640px) 32vw, (max-width: 768px) 34vw, 220px"
               />
             </div>
             <FloatingEmoji emoji="🏖️" position="bottom-right" />
@@ -149,16 +149,16 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.3 }}
             style={prefersReducedMotion ? {} : { rotate: rotateRight }}
             whileHover={{ rotate: 0, scale: 1.04, transition: { duration: 0.25 } }}
-            className="relative flex-shrink-0"
+            className="relative w-[28%] sm:w-[30%] md:w-[32%] max-w-[200px]"
           >
-            <div className="relative w-36 sm:w-44 md:w-48 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/about-3.jpeg"
                 alt="Mukund coding"
                 width={400}
-                height={0}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 192px"
+                height={500}
+                className="w-full h-auto"
+                sizes="(max-width: 640px) 28vw, (max-width: 768px) 30vw, 200px"
               />
             </div>
             <FloatingEmoji emoji="👨‍💻" position="top-right" />

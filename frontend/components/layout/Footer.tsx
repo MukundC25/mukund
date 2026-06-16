@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { resumeData } from '@/lib/resume-data';
 import { useRef } from 'react';
-import Image from 'next/image';
+import { GitHubGraph } from '@/components/ui/GitHubGraph';
 
 export function Footer() {
   const prefersReducedMotion = useReducedMotion();
@@ -21,8 +21,8 @@ export function Footer() {
 
   return (
     <footer ref={footerRef} className="border-t border-border mt-8 overflow-hidden">
-      {/* Real GitHub Contribution Graph */}
-      <div className="max-w-4xl mx-auto px-6 pt-16 pb-10">
+      {/* GitHub Contribution Graph — no labels, just clean squares */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,17 +30,7 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="flex justify-center"
         >
-          <div className="w-full max-w-3xl overflow-hidden rounded-xl">
-            {/* Real GitHub contribution graph via ghchart */}
-            <Image
-              src="https://ghchart.rshah.org/MukundC25"
-              alt="Mukund's GitHub Contribution Graph"
-              width={900}
-              height={130}
-              className="w-full h-auto"
-              unoptimized
-            />
-          </div>
+          <GitHubGraph username="MukundC25" />
         </motion.div>
       </div>
 
@@ -59,13 +49,13 @@ export function Footer() {
       </div>
 
       {/* Large parallax gradient name — Mukund Chavan */}
-      <div className="relative h-36 sm:h-48 md:h-56 overflow-hidden">
+      <div className="relative h-28 sm:h-40 md:h-56 overflow-hidden">
         <motion.div
           style={prefersReducedMotion ? {} : { y: yName, opacity: opacityName, scale: scaleName }}
-          className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
+          className="absolute inset-0 flex items-center justify-center select-none pointer-events-none px-4"
         >
           <h2
-            className="text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[9rem] font-serif font-bold tracking-tight leading-none whitespace-nowrap"
+            className="text-[2.5rem] sm:text-[4.5rem] md:text-[7rem] lg:text-[9rem] font-serif font-bold tracking-tight leading-none text-center"
             style={{
               background: 'linear-gradient(135deg, #1a1a1a 0%, #555555 30%, #999999 55%, #cccccc 75%, #e8e8e8 100%)',
               WebkitBackgroundClip: 'text',

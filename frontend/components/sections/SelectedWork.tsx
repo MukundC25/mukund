@@ -84,9 +84,9 @@ export function SelectedWork() {
     <section
       ref={sectionRef}
       id="work"
-      className="py-20 border-t border-border"
+      className="py-14 sm:py-20 border-t border-border"
     >
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

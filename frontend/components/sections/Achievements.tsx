@@ -126,7 +126,7 @@ export function Achievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group px-6 py-5 rounded-xl hover:bg-muted/60 transition-colors cursor-default border border-transparent hover:border-border"
+              className="group px-4 sm:px-6 py-4 sm:py-5 rounded-xl hover:bg-muted/60 transition-colors cursor-default border border-transparent hover:border-border"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">

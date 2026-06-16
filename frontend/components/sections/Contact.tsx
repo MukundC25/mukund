@@ -40,7 +40,7 @@ export function Contact() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
             {/* Location */}
             <div>
               <p className="text-xs text-muted-foreground/70 uppercase tracking-wide mb-2">Location</p>

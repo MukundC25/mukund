@@ -64,7 +64,7 @@ export function TechStack() {
 
         <motion.div
           style={prefersReducedMotion ? {} : { x: xParallax }}
-          className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-3"
+          className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2.5 sm:gap-3"
         >
           {techItems.map((tech, index) => (
             <motion.div
